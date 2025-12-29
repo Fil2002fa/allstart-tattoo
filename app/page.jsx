@@ -6,6 +6,7 @@ import ImageScroll from './components/ImageScroll/ImageScroll'
 import AppWrapper from './components/AppWrapper'
 import FullScreenMenu from './components/FullScreenMenu';
 import Faq from "./components/Faq"
+import AppointmentSection from './components/AppointmentSection'
 
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
@@ -58,8 +59,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-2/4 md:w-1/2 mt-40 ">
-        <p ref={container} className={styles.paragraph}>
+      <div className="w-2/4 md:w-1/2 ">
+        <p ref={container} className={styles.paragraph} >
           {words.map((word, i) => {
             const start = i / words.length;
             const end = start + 1 / words.length;
@@ -73,7 +74,8 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="h-[20vh]" />
+      
+      <AppointmentSection /> 
       <ImageScroll /> 
       <Faq />
     </div>

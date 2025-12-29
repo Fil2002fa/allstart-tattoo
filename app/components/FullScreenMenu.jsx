@@ -30,37 +30,36 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
         {routes.map((route) => (
           <li key={route.label} className="list-none">
             <Link
-              href={route.url}
-              onClick={toggleMenu}
-              
-              className="group relative block overflow-hidden text-white uppercase text-[clamp(40px,8vw,100px)] leading-[1.1]"
-            >
-              {/* PRIMA RIGA (Bianca) */}
-              <div className="flex transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
-                {route.label.split("").map((char, i) => (
-                  <span
-                    key={i}
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                    style={{ transitionDelay: `${i * 10.03}s` }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </span>
-                ))}
-              </div>
+                href={route.url}
+                onClick={toggleMenu}
+                className="group relative block overflow-hidden text-white uppercase text-[clamp(40px,8vw,100px)] leading-[1.1]"
+              >
+                {/* PRIMA RIGA (Sale verso l'alto) */}
+                <div className="flex">
+                  {route.label.split("").map((char, i) => (
+                    <span
+                      key={i}
+                      className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
+                      style={{ transitionDelay: `${i * 0.03}s` }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
+                </div>
 
-              {/* SECONDA RIGA  */}
-              <div className="flex absolute top-0 left-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0">
-                {route.label.split("").map((char, i) => (
-                  <span
-                    key={i}
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                    style={{ transitionDelay: `${i * 0.13}s` }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </span>
-                ))}
-              </div>
-            </Link>
+                {/* SECONDA RIGA (Sale dal basso verso la posizione originale) */}
+                <div className="flex absolute top-0 left-0">
+                  {route.label.split("").map((char, i) => (
+                    <span
+                      key={i}
+                      className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0"
+                      style={{ transitionDelay: `${i * 0.03}s` }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
+                </div>
+              </Link>
           </li>
         ))}
       </ul>

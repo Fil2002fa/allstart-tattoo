@@ -8,7 +8,7 @@ import AppWrapper from "./components/AppWrapper"; // Importiamo il nuovo wrapper
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Ink Tatto Studio', 
-  description: 'Una descrizione accattivante del mio progetto.',
+ 
 };
 export default function RootLayout({
   children,
