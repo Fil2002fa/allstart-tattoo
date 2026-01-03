@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* globals.css */
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  /* Rimuoviamo will-change se non strettamente necessario, 
+     ma teniamolo se noti scatti nell'animazione */
+}
+
+::view-transition-new(root),
+::view-transition-old(root) {
+  /* Fondamentale: annulla le animazioni CSS predefinite 
+     per usare quelle via JS */
+  animation: none !important;
+  height: 100%;
+  width: 100%;
+}
+
+::view-transition-new(root) {
+  z-index: 2; /* La nuova pagina deve stare sopra */
+}
+
+::view-transition-old(root) {
+  z-index: 1; /* La vecchia pagina sta sotto */
+}

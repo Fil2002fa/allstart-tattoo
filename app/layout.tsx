@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { ViewTransitions } from 'next-view-transitions'
  
 import AppWrapper from "./components/AppWrapper"; // Importiamo il nuovo wrapper
 
@@ -16,10 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="dark:bg-black">
-        {children}
-      </body>
-    </html>
-  );
+    <ViewTransitions>
+      <html lang="it">
+        <body>{children}</body>
+      </html>
+    </ViewTransitions>
+  )
 }
