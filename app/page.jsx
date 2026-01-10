@@ -3,10 +3,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef,useState } from 'react';
 import styles from './style.module.scss';
 import ImageScroll from './components/ImageScroll/ImageScroll'
-import AppWrapper from './components/AppWrapper'
-import FullScreenMenu from './components/FullScreenMenu';
 import Faq from "./components/Faq"
 import AppointmentSection from './components/AppointmentSection'
+import TransitionLink from './components/TransitionLink'
 
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
@@ -21,12 +20,7 @@ const Word = ({ children, progress, range }) => {
 
 export default function Home() {
   const container = useRef(null);
-  const [menuAperto, setMenuAperto] = useState(false)
-
-  function toggleMenu() {
-    setMenuAperto(prev => !prev)
-  }
-
+ 
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -45,12 +39,11 @@ export default function Home() {
           44 Wickham St · 44 Wickham St, Prior&apos;s-Land, Limerick, V94 X2K5
         </p>
     
-          <button onClick={toggleMenu} className='px-4 py-3 cursor-pointer '>
+         <TransitionLink href="/menu" className='px-4 py-3 cursor-pointer '>
             MENU
-          </button>
-        
+          </TransitionLink>
       </div>
- <FullScreenMenu menuAperto={menuAperto} toggleMenu={toggleMenu} />
+
       <div className="flex flex-col min-h-screen justify-center items-center text-end pt-16 bg-black">
         <div className="text-white text-[clamp(45px,10vw,130px)] font-bold leading-none">
           ONE OF A KIND <br />

@@ -1,7 +1,7 @@
 "use client"; 
 
 import React, { useState } from 'react';
-import FullScreenMenu from "./FullScreenMenu";
+import FullScreenMenu from "../FullScreenMenu";
 
 
 export default function AppWrapper({ children }) {
