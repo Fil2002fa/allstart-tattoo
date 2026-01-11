@@ -40,7 +40,7 @@ export default function Page() {
             trigger: section,
             pin: true,
             start: "top top",
-            end: () => `+=${scrollDistance}`, // ✅ qui!
+            end: () => `+=${scrollDistance}`, 
             scrub: 1,
             invalidateOnRefresh: true,
           },
@@ -79,9 +79,14 @@ export default function Page() {
  return (
   <div className="w-full bg-black text-white">
     
-    {/* HEADER: Deve essere fixed o absolute per non occupare spazio nel flusso */}
+   
     <div className="fixed top-0 left-0 flex justify-between items-center px-10 py-6 w-full z-50 bg-gradient-to-b from-black/80 to-transparent">
-      <TransitionLink href='/' className="text-sm tracking-wide">Allstar Ink Tattoo</TransitionLink>
+      <div className=" flex-col mt-3 ">
+        <TransitionLink href='/' className="text-sm tracking-wide ">Allstar Ink Tattoo</TransitionLink>
+      <div className="mt-3 border-b w-fit">
+        <TransitionLink href='/' className="text-sm ">Contact</TransitionLink>
+      </div>
+      </div>
       <div className="flex gap-6">
         <h1 className="px-3 py-1 text-sm font-light">
           <span className="text-gray-400 mr-2">01</span> GALLERIA

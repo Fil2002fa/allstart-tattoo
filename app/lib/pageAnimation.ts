@@ -3,7 +3,8 @@ export const pageAnimation = () => {
   document.documentElement.animate(
     [
       { opacity: 1, scale: 1, transform: "translateY(0)" },
-      { opacity: 0.8, scale: 0.9, transform: "translateY(-100px)" },
+      { opacity: 0.8, scale: 1
+        , transform: "translateY(-100px)" },
     ],
     {
       duration: 1000,

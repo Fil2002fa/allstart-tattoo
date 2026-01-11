@@ -1,20 +1,22 @@
 .paragraph {
   display: flex;
-  font-size: clamp(35px,10vw,60px);
+  font-size: clamp(35px, 10vw, 90px);
   line-height: 1;
+  margin-bottom: 300px;
   padding: 40px;
-  max-width: 1280px;
   color: white;
   flex-wrap: wrap;
+}
 
-  .word {
-    position: relative;
-    margin-right: 12px;
-    margin-top: 12px;
+.word {
+  position: relative;
+  margin-right: 12px;
+  margin-top: 12px;
+}
 
-    .shadow {
-      position: absolute;
-      opacity: 20%;
-    }
-  }
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.15; /* NON percentuale */
 }

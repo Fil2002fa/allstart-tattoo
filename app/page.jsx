@@ -6,6 +6,7 @@ import ImageScroll from './components/ImageScroll/ImageScroll'
 import Faq from "./components/Faq"
 import AppointmentSection from './components/AppointmentSection'
 import TransitionLink from './components/TransitionLink'
+import Footer from './components/Footer'
 
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
@@ -24,7 +25,7 @@ export default function Home() {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start 0.8', 'start 0'],
+offset: ['start 0.9', 'end 0.3']
   });
 
   const paragraph =
@@ -52,7 +53,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-2/4 md:w-1/2 ">
+      <div className="md:w-3/5 ">
         <p ref={container} className={styles.paragraph} >
           {words.map((word, i) => {
             const start = i / words.length;
@@ -71,6 +72,7 @@ export default function Home() {
       <AppointmentSection /> 
       <ImageScroll /> 
       <Faq />
+      <Footer/>
     </div>
   );
 }
