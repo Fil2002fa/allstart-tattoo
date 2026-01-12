@@ -33,8 +33,8 @@ offset: ['start 0.9', 'end 0.3']
   const words = paragraph.split(' ');
 
   return (
-    <div className="dark:bg-black min-h-[300vh]">
-      <div className="flex justify-between p-2.5 md:p-2 fixed w-full z-20 bg-black/50 backdrop-blur-sm text-white">
+    <div className="min-h-[300vh]">
+      <div className="flex justify-between p-2.5 md:px-10 mt-2 fixed w-full z-20 bg-transparent  text-white">
         <h1>Allstar Ink Tattoo</h1>
         <p className="w-55 text-[10px] text-end">
           44 Wickham St · 44 Wickham St, Prior&apos;s-Land, Limerick, V94 X2K5
