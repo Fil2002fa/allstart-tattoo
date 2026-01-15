@@ -7,6 +7,7 @@ import Faq from "./components/Faq"
 import AppointmentSection from './components/AppointmentSection'
 import TransitionLink from './components/TransitionLink'
 import Footer from './components/Footer'
+import Tatttostyles from './components/Tatttostyles'
 
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
@@ -70,7 +71,9 @@ offset: ['start 0.9', 'end 0.3']
 
       
       <AppointmentSection /> 
+       <Tatttostyles />
       <ImageScroll /> 
+       
       <Faq />
       <Footer/>
     </div>

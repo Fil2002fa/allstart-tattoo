@@ -1,23 +1,21 @@
 export const projects = [
   {
     title: "Matthias Leidinger",
-    description: "…",
-    src: "/foto1.png",
-    link: "https://…",
-    color: "#BBACAF",
+    description: "Etched with single needles for extreme delicacy. These tattoos look like thin pencil sketches on the skin—minimal, elegant, and timeless.",
+    src: "/FineLine-left.png",
+    color: "#FFFFFF",
   },
   {
     title: "Clément Chapillon",
     description: "…",
     src: "/foto2.png",
-    link: "https://…",
-    color: "#977F6D",
+   
+    color: "#FFFFFF",
   },
   {
     title: "Zissou",
     description: "…",
     src: "/foto3.png",
-    link: "https://…",
-    color: "#C2491D",
+    color: "#FFFFFF",
   },
 ];

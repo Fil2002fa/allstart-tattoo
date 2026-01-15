@@ -1,55 +1,80 @@
 'use client'
-import Image from 'next/image';
 import styles from './style.module.scss';
 import { useTransform, motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 
-const Card = ({i, title, description, src, url, color, progress, range, targetScale}) => {
+const Card = ({i, title, description, src, color, progress, range, targetScale}) => {
 
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
+  
+  // Gestiamo lo scroll interno alla singola card per far apparire il paragrafo
+  const { scrollYProgress: elementProgress } = useScroll({
     target: container,
     offset: ['start end', 'start start']
   })
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1])
+  // Animazione per il paragrafo: opacità e movimento verso l'alto
+  const opacity = useTransform(elementProgress, [0.7, 1], [0, 1]);
+  const y = useTransform(elementProgress, [0.7, 1], [20, 0]);
+
+  // Scala della card globale (quella che passiamo dal componente padre)
   const scale = useTransform(progress, range, [1, targetScale]);
- 
-  return (
-    <div ref={container} className={styles.cardContainer}>
-      <motion.div 
-        style={{backgroundColor: color, scale, top:`calc(-5vh + ${i * 25}px)`}} 
-        className={styles.card}
-      >
-        <h2>{title}</h2>
-        <div className={styles.body}>
-          <div className={styles.description}>
-            <p>{description}</p>
-            <span>
-              <a href={url} target="_blank">See more</a>
-              <svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z" fill="black"/>
-              </svg>
-            </span>
+return (
+  <div
+    ref={container}
+    className="sticky top-0 h-screen flex items-center justify-end pr-[50px]"
+  >
+    <motion.div
+      style={{
+        backgroundColor: color,
+        scale,
+        top: `calc(5vh + ${i * 45}px)`,
+      }}
+      className="
+        relative flex flex-col origin-top
+        h-[60vh] w-[80vw] max-w-[1000px] min-h-[300px]
+        p-[5vw]
+        md:h-[70vh] md:w-[90vw]
+        max-md:h-auto max-md:flex-col max-md:p-5
+      "
+    >
+        <div className="relative w-[45%] h-[80%] max-md:w-full max-md:h-[260px]">
+            <Image
+            src="/FineLine-left.png"
+                alt={title || "Project image"}
+              fill
+              className="object-contain"
+              priority={i === 0}
+            />
           </div>
+     
 
-          <div className={styles.imageContainer}>
-            <motion.div
-              className={styles.inner}
-              style={{scale: imageScale}}
-            >
-              <Image
-                fill
-                src={`/images/${src}`}
-                alt="image" 
-              />
-            </motion.div>
-          </div>
+      <div className="flex  items-center justify-end  h-full   max-md:gap-5 max-md:mt-5">
+        <motion.div
+          style={{ opacity, y }}
+          className="w-[70%] relative top-0 max-md:w-full"
+        >
+          <p
+            className="
+              flex 
+              text-black font-mono uppercase text-[clamp(14px,2vw,18px)]
+              first-letter:text-[clamp(24px,3vw,32px)]
+              first-letter:font-['Title'] 
+             
+            "
+          >
+            {description}
+          </p>
 
-        </div>
-      </motion.div>
-    </div>
-  )
+        
+        </motion.div>
+
+      </div>
+    </motion.div>
+  </div>
+);
+
 }
 
-export default Card
+export default Card;
