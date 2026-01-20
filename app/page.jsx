@@ -6,9 +6,9 @@ import ImageScroll from './components/ImageScroll/ImageScroll'
 import Faq from "./components/Faq"
 import AppointmentSection from './components/AppointmentSection'
 import TransitionLink from './components/TransitionLink'
-import Footer from './components/Footer'
-import Tatttostyles from './components/Tatttostyles'
-
+import Footer from './components/Footer/Footer'
+import CircularText from './components/CurcularText/CircularText'
+import Image from 'next/image';
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
@@ -46,12 +46,15 @@ offset: ['start 0.9', 'end 0.3']
           </TransitionLink>
       </div>
 
-      <div className="flex flex-col min-h-screen justify-center items-center text-end pt-16 bg-black">
+      <div className="flex relative min-h-screen justify-center items-center text-end pt-16 bg-black">
         <div className="text-white text-[clamp(45px,10vw,130px)] font-bold leading-none">
           ONE OF A KIND <br />
           TATTOO <br />
           STUDIO
         </div>
+         <div className='absolute right-0 bottom-0 p-5'>
+          <CircularText />
+         </div>
       </div>
 
       <div className="md:w-3/5 ">
@@ -69,9 +72,9 @@ offset: ['start 0.9', 'end 0.3']
         </p>
       </div>
 
-      
+   
       <AppointmentSection /> 
-       <Tatttostyles />
+      
       <ImageScroll /> 
        
       <Faq />

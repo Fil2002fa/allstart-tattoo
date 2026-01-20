@@ -4,7 +4,7 @@ import { useTransform, motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
-const Card = ({i, title, description, src, color, progress, range, targetScale}) => {
+const Card = ({i, title, description, color, progress, range, targetScale,src}) => {
 
   const container = useRef(null);
   
@@ -23,7 +23,8 @@ const Card = ({i, title, description, src, color, progress, range, targetScale})
 return (
   <div
     ref={container}
-    className="sticky top-0 h-screen flex items-center justify-end pr-[50px]"
+    
+    className="sticky flex top-12 h-screen items-center justify-center"
   >
     <motion.div
       style={{
@@ -33,44 +34,44 @@ return (
       }}
       className="
         relative flex flex-col origin-top
-        h-[60vh] w-[80vw] max-w-[1000px] min-h-[300px]
+        h-[50vh] w-[80vw] max-w-[1000px] min-h-[250px]
         p-[5vw]
-        md:h-[70vh] md:w-[90vw]
-        max-md:h-auto max-md:flex-col max-md:p-5
+        md:h-[60vh] md:w-[90vw]
       "
     >
-        <div className="relative w-[45%] h-[80%] max-md:w-full max-md:h-[260px]">
-            <Image
-            src="/FineLine-left.png"
-                alt={title || "Project image"}
-              fill
-              className="object-contain"
-              priority={i === 0}
-            />
-          </div>
-     
+  
+      <div className="absolute hidden min-[850px]:block  left-[-20] top-1/2 -translate-y-1/2 w-[320px] h-[400px]  pointer-events-none">
+        <Image
+          src={src}
+          alt={title || "Project image"}
+          fill
+          className="object-contain"
+          priority={i === 0}
+        />
+      </div>
 
-      <div className="flex  items-center justify-end  h-full   max-md:gap-5 max-md:mt-5">
+      <div className="flex items-center justify-end h-full">
         <motion.div
           style={{ opacity, y }}
-          className="w-[70%] relative top-0 max-md:w-full"
+          className="w-[70%] flex flex-col gap-20 mb-15"
         >
+          <h3 className="text-black uppercase top-0 font-['Title'] text-[clamp(18px,2.2vw,28px)] leading-none">
+            {title}
+          </h3>
+
           <p
             className="
-              flex 
-              text-black font-mono uppercase text-[clamp(14px,2vw,18px)]
+              text-black font-mono uppercase
+              text-[clamp(14px,2vw,18px)]
               first-letter:text-[clamp(24px,3vw,32px)]
-              first-letter:font-['Title'] 
-             
+              first-letter:font-['Title']
             "
           >
             {description}
           </p>
-
-        
         </motion.div>
-
       </div>
+
     </motion.div>
   </div>
 );
