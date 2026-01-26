@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import styles from "./style.module.css";
+import Image from "next/image";
 
 // 1. Corretta la sintassi del componente SocialLink
 const SocialLink = ({ label, url }) => {
@@ -20,26 +21,45 @@ const SocialLink = ({ label, url }) => {
 export default function ContactSection() {
   return (
     <div className="mt-40 ml-10">
-      <div>
-        <h1 className="mb-5 text-6xl font-bold md:mb-10 md:text-8xl">
-          !MAKE YOUR MARK!
-        </h1>
+      <div className="mt-40 ml-10 mb-50 relative">
+  {/* BG */}
+  <div className="pointer-events-none opacity-40 absolute right-0 top-0 -z-10
+                  h-[560px] w-[560px]
+                  md:h-[820px] md:w-[820px]">
+    <Image
+      src="/Bg-footer.png"
+      alt="Footer background"
+      fill
+      className="object-contain opacity-90"
+      priority
+    />
+  </div>
 
-        <p className="mb-5 text-xl md:mb-10 md:text-2xl">
-          Stop thinking, start inking. Book your session <br /> below.
-        </p>
 
-        <div className="mb-5 md:mb-10">
-          <p>Schedule an appointment</p>
-        </div>
+  <div className="pt-24 md:pt-32">
+    <h1 className="mb-5 text-6xl font-bold md:mb-10 md:text-9xl">
+      !MAKE YOUR MARK!
+    </h1>
 
-        <div className="text-3xl md:text-4xl">allstarink@gmail.com</div>
-      </div>
+    <p className="mb-5 text-xl md:mb-40 md:text-2xl">
+      Stop thinking, start inking. Book your session <br /> below.
+    </p>
 
-      <div className="pt-16 md:flex md:items-start md:justify-between">
+    <div className="mb-5 md:mt-20 md:mb-5">
+      <p>Schedule an appointment</p>
+    </div>
+
+    <div className="text-3xl  md:text-5xl">allstarink@gmail.com</div>
+  </div>
+</div>
+
+
+           
+
+      <div className="pt-36 md:flex md:items-start md:justify-between">
         <h1 className="mb-10 text-6xl font-bold md:text-9xl">
           Limerick, <br />
-          Ireland {/* Corretto spelling da Irland a Ireland */}
+          Ireland 
         </h1>
 
         <div className="cursor-pointer md:mr-10">
@@ -47,6 +67,7 @@ export default function ContactSection() {
             <h1 className="mb-2 text-6xl">(Get Inked)</h1>
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-10" />
           </div>
+          
 
           <div className="w-fit border-t pt-10 ">
             <div className="grid grid-cols-[auto_1fr_2fr] gap-x-16 gap-y-10">
@@ -73,7 +94,6 @@ export default function ContactSection() {
                   <br />
                   Prior&apos;s-Land,
                 </p>
-
                 <div className="flex gap-5 ">
                   {/* 2. Utilizzo corretto del componente SocialLink */}
                   <SocialLink label="Instagram" url="https://instagram.com/..." />

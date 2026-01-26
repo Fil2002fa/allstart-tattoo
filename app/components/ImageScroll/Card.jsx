@@ -4,21 +4,20 @@ import { useTransform, motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
-const Card = ({i, title, description, color, progress, range, targetScale,src}) => {
+const Card = ({i, title, description, color, progress, range, targetScale,src,srcBg}) => {
 
   const container = useRef(null);
   
-  // Gestiamo lo scroll interno alla singola card per far apparire il paragrafo
+  
   const { scrollYProgress: elementProgress } = useScroll({
     target: container,
     offset: ['start end', 'start start']
   })
 
-  // Animazione per il paragrafo: opacità e movimento verso l'alto
   const opacity = useTransform(elementProgress, [0.7, 1], [0, 1]);
   const y = useTransform(elementProgress, [0.7, 1], [20, 0]);
 
-  // Scala della card globale (quella che passiamo dal componente padre)
+
   const scale = useTransform(progress, range, [1, targetScale]);
 return (
   <div
@@ -39,7 +38,6 @@ return (
         md:h-[60vh] md:w-[90vw]
       "
     >
-  
       <div className="absolute hidden min-[850px]:block  left-[-20] top-1/2 -translate-y-1/2 w-[320px] h-[400px]  pointer-events-none">
         <Image
           src={src}
@@ -64,11 +62,21 @@ return (
               text-black font-mono uppercase
               text-[clamp(14px,2vw,18px)]
               first-letter:text-[clamp(24px,3vw,32px)]
-              first-letter:font-['Title']
+              first-letter:font-['Title'] z-10
             "
           >
             {description}
           </p>
+          <div className="absolute mt-5 opacity-80 hidden min-[850px]:block z-0 right-1  top-1/2 -translate-y-1/2    w-[400px] h-[350px]  pointer-events-none">
+            <Image
+              src={srcBg}
+              alt={title || "Project image"}
+              fill
+              className="object-contain"
+              priority={i === 0}
+            />
+         </div>
+        
         </motion.div>
       </div>
 
