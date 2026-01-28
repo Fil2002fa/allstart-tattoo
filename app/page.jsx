@@ -9,6 +9,8 @@ import TransitionLink from './components/TransitionLink'
 import Footer from './components/Footer/Footer'
 import CircularText from './components/CurcularText/CircularText'
 import Image from 'next/image';
+import Videozoom from './components/Videozoom' 
+
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
 
@@ -26,7 +28,7 @@ export default function Home() {
 
   const { scrollYProgress } = useScroll({
     target: container,
-offset: ['start 0.9', 'end 0.3']
+    offset: ['start 0.9', 'end 0.3']
   });
 
   const paragraph =
@@ -50,7 +52,15 @@ offset: ['start 0.9', 'end 0.3']
         <div className="text-white text-[clamp(45px,10vw,130px)] font-bold leading-none">
           ONE OF A KIND <br />
           TATTOO <br />
-          STUDIO
+        <span className="flex  ml-50 gap-10 uppercase">
+        <span>Studio</span>
+        
+        {/* Il Videozoom ora è relativo a questa riga */}
+        <div className=" pointer-events-auto"> 
+          {/* Riduciamo leggermente la scala iniziale nel componente se serve */}
+          <Videozoom />
+        </div>
+      </span>
         </div>
          <div className='absolute right-0 bottom-0 p-5'>
           <CircularText />

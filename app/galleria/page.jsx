@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TransitionLink from "../components/TransitionLink";
@@ -8,6 +7,50 @@ import TransitionLink from "../components/TransitionLink";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Page() {
+// counter card 
+const [activeIndex, setActiveIndex] = useState(0);
+const activeIndexRef = useRef(0);
+// Hover card 
+
+  const handleHover = (el) => {
+  const allCards = gsap.utils.toArray(".card");
+  
+  // Anima la card su cui si trova il mouse
+  gsap.to(el, {
+    scale: 1.4,
+    opacity: 1,
+    zIndex: 50,
+    duration: 0.4,
+    ease: "power2.out",
+    overwrite: true
+  });
+
+  // Rendi tutte le altre card più trasparenti
+  allCards.forEach((card) => {
+    if (card !== el) {
+      gsap.to(card, {
+        opacity: 0.1,
+        scale: 0.9,
+        duration: 0.4,
+        ease: "power2.out",
+        overwrite: true
+      });
+    }
+  });
+};
+
+const handleHoverExit = () => {
+  const allCards = gsap.utils.toArray(".card");
+  
+  gsap.to(allCards, {
+    scale: 1,
+  opacity: 1,
+    zIndex: 10,
+    duration:1,
+    ease: "power2.inOut",
+    overwrite: true
+  });
+};
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
 
@@ -48,28 +91,38 @@ export default function Page() {
             end: () => `+=${scrollDistance}`,
             scrub: 1,
             invalidateOnRefresh: true,
-           onEnter: () => {
-  document.documentElement.classList.add("hide-scrollbar-gallery");
-  document.body.classList.add("hide-scrollbar-gallery");
-},
-onEnterBack: () => {
-  document.documentElement.classList.add("hide-scrollbar-gallery");
-  document.body.classList.add("hide-scrollbar-gallery");
-},
-onLeave: () => {
-  document.documentElement.classList.remove("hide-scrollbar-gallery");
-  document.body.classList.remove("hide-scrollbar-gallery");
-},
-onLeaveBack: () => {
-  document.documentElement.classList.remove("hide-scrollbar-gallery");
-  document.body.classList.remove("hide-scrollbar-gallery");
-},
-
+           
 
           },
+          
+
         });
 
         const cards = gsap.utils.toArray(".card", track);
+        cards.forEach((card, idx) => {
+  ScrollTrigger.create({
+    id: `gallery-active-${idx}`,
+    trigger: card,
+    containerAnimation: horizontalTween,
+    start: "center center",
+    end: "center center",
+    onEnter: () => {
+      const n = idx + 1; // ✅ 1..(15*numberOfSets)
+      if (activeIndexRef.current !== n) {
+        activeIndexRef.current = n;
+        setActiveIndex(n);
+      }
+    },
+    onEnterBack: () => {
+      const n = idx + 1;
+      if (activeIndexRef.current !== n) {
+        activeIndexRef.current = n;
+        setActiveIndex(n);
+      }
+    },
+  });
+});
+
 
         cards.forEach((card, idx) => {
           gsap.to(card, {
@@ -126,14 +179,18 @@ onLeaveBack: () => {
       <section ref={sectionRef} className="relative h-screen overflow-hidden flex items-center">
         <div
           ref={trackRef}
-          className="flex gap-10 items-center whitespace-nowrap will-change-transform z-10"
+          className="flex gap-10 mb-5 items-center whitespace-nowrap will-change-transform z-10"
         >
-          {/* ✅ ripete le stesse 15 immagini per numberOfSets volte */}
+         
+         
           {[...Array(numberOfSets)].map((_, setIndex) =>
             cardData.map((i) => (
               <div
                 key={`${setIndex}-${i}`}
-                className="card w-[150px] h-[200px] flex-shrink-0 opacity-30"
+                className="card w-[200px] h-[250px] flex-shrink-0  cursor-pointer "
+                  onMouseEnter={(e) => handleHover(e.currentTarget)}
+                 onMouseLeave={() => handleHoverExit()}
+                style={{ position: 'relative' }}
               >
                 <img
                   src={`https://picsum.photos/600/800?random=${i}`}
@@ -145,8 +202,9 @@ onLeaveBack: () => {
             ))
           )}
         </div>
+                
 
-        <div className="absolute inset-x-0 bottom-16 z-20 pointer-events-none">
+        <div className="absolute inset-x-0 bottom-12 z-20 pointer-events-none">
           <div className="mx-auto max-w-2xl px-6 text-center">
             <h1 className="font-serif text-5xl mb-6">Signature Style</h1>
             <p className="text-white/80 leading-relaxed">
@@ -160,6 +218,8 @@ onLeaveBack: () => {
         <div className="absolute bottom-10 left-10 text-[10px] opacity-40 z-20">
           SCROLL TO EXPLORE
         </div>
+      
+
       </section>
     </div>
   );

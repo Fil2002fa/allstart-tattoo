@@ -63,30 +63,25 @@ export default function ContactSection() {
         </h1>
 
         <div className="cursor-pointer md:mr-10">
-          <div className="group flex items-center gap-6">
-            <h1 className="mb-2 text-6xl">(Get Inked)</h1>
-            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-10" />
-          </div>
-          
+        
 
-          <div className="w-fit border-t pt-10 ">
-            <div className="grid grid-cols-[auto_1fr_2fr] gap-x-16 gap-y-10">
-              <div className="flex flex-col gap-16 text-gray-600">
-                <p>01</p>
+          <div className="w-fit pt-10 ">
+            <div className="grid grid-cols-[auto_1fr_2fr] gap-x-16 ">
+              <div className="flex flex-col gap-160">
+                <p>Position</p>
                 <p>02</p>
                 <p>03</p>
               </div>
 
               <div className="flex flex-col gap-16">
                 <p>Get in Touch</p>
-                <p>Position</p>
-                <p>Social</p>
+                <p></p>
+                <p></p>
               </div>
 
               <div className="flex flex-col gap-y-10">
                 <p>
-                  Book Your Appointment <br />
-                  allstarink@gmail.com
+                  Social
                 </p>
 
                 <p>

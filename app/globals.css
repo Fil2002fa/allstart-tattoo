@@ -20,7 +20,17 @@
   }
 }
 
+/* Nasconde la scrollbar per Chrome, Safari e browser basati su Chromium */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
 
+/* Nasconde la scrollbar per Firefox e IE/Edge */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
 /* Nasconde la scrollbar per IE, Edge e Firefox */
 body {
   -ms-overflow-style: none;  /* IE and Edge */
