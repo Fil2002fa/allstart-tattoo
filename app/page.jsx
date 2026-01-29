@@ -48,21 +48,18 @@ export default function Home() {
           </TransitionLink>
       </div>
 
-      <div className="flex relative min-h-screen justify-center items-center text-end pt-16 bg-black">
+      <div className="flex relative justify-center items-center text-end pt-45 bg-black">
         <div className="text-white text-[clamp(45px,10vw,130px)] font-bold leading-none">
           ONE OF A KIND <br />
           TATTOO <br />
         <span className="flex  ml-50 gap-10 uppercase">
         <span>Studio</span>
-        
-        {/* Il Videozoom ora è relativo a questa riga */}
         <div className=" pointer-events-auto"> 
-          {/* Riduciamo leggermente la scala iniziale nel componente se serve */}
           <Videozoom />
         </div>
       </span>
         </div>
-         <div className='absolute right-0 bottom-0 p-5'>
+         <div className='absolute right-3 my-auto items-center bottom-140 cursor-pointer '>
           <CircularText />
          </div>
       </div>

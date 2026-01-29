@@ -39,7 +39,7 @@ export default function Videozoom() {
       tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
-          start: "top 65%",
+          start: " 50%",
           end: "+=100%",
           scrub: 0.8,
           pin: true,
@@ -75,7 +75,7 @@ export default function Videozoom() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full bg-red-200 h-full flex items-center mt-10 pointer-events-none ">
+    <div ref={containerRef} className="w-full bg-red-200 h-full mb-150 flex items-center pointer-events-none ">
     <div
       ref={mediaWrapperRef}
       className="absolute  w-52 h-30 bg-red-400"

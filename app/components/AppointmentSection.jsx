@@ -7,7 +7,8 @@ export default function AppointmentSection() {
     const word = "AGENDAMOS CITA"
 
  return (
-    <div className='flex flex-col justify-center text-center mt-16 mb-18'>
+ 
+  <div className='flex flex-col justify-center text-center mt-16 mb-18'>
       <h1 className='text-center text-[clamp(45px,8vw,100px)] wm'>
         LET THE INK <br /> FLOW 
       </h1>
@@ -18,7 +19,7 @@ export default function AppointmentSection() {
       <div className='mt-5 flex justify-center  '>
              <button
                 className="
-                    group flex items-center gap-4 px-3 py-2 border rounded-full "
+                    group flex items-center gap-4 px-3 py-2 border rounded-full cursor-pointer"
                  >
            <span 
             className=' relative w-8 h-8 bg-red-700 rounded-full flex justify-center items-center '>
@@ -34,35 +35,35 @@ export default function AppointmentSection() {
 
            </span>
 
-            {/* TESTO */}
-            <span className=" relative block overflow-hidden text-white uppercase  leading-[1.1]">
-            <div className="flex transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
-                {word.split("").map((char, i) => (
-                  <span
-                    key={i}
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                    style={{ transitionDelay: `${i * 0.03}s` }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </span>
-                ))}
-              </div>
-
-              {/* SECONDA RIGA  */}
-              <div className="flex absolute top-0 left-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0">
-                {word.split("").map((char, i) => (
-                  <span
-                    key={i}
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                    style={{ transitionDelay: `${i * 0.13}s` }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </span>
-                ))}
-              </div>
+        <span className="relative block overflow-hidden text-white uppercase leading-[1.1] cursor-pointer">
+       
+          <div className="flex">
+            {word.split("").map((char, i) => (
+              <span
+                key={i}
+                className="inline-block transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
+                style={{ transitionDelay: `${i * 0.03}s` }}
+              >
+                {char === " " ? "\u00A0" : char}
               </span>
-            </button>
-      </div>
+            ))}
+          </div>
+
+          {/* SECONDA RIGA (Entra dal basso) */}
+          <div className="flex absolute top-0 left-0">
+            {word.split("").map((char, i) => (
+              <span
+                key={i}
+                className="inline-block transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0"
+                style={{ transitionDelay: `${i * 0.03}s` }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </div>
+        </span>
+      </button>
     </div>
-  )
+  </div>
+)
 }

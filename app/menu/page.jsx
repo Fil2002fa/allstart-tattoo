@@ -33,7 +33,7 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
                 {route.label.split("").map((char, i) => (
                   <span
                     key={i}
-                    className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
+                    className="inline-block transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
                     style={{ transitionDelay: `${i * 0.03}s` }}
                   >
                     {char === " " ? "\u00A0" : char}
@@ -44,7 +44,7 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
                 {route.label.split("").map((char, i) => (
                   <span
                     key={i}
-                    className="inline-block transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0"
+                     className="inline-block transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0"
                     style={{ transitionDelay: `${i * 0.03}s` }}
                   >
                     {char === " " ? "\u00A0" : char}
