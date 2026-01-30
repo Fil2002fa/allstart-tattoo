@@ -15,7 +15,7 @@ export const faqData = [
     id: 3,
     question: "What materials will be used for my tattoo?",
     answer:
-      "We use professional tattoo machines, sterile single-use needles, disposable materials, and high-quality certified inks that meet health and safety standards."
+      "We use professional tattoo machines, sterile <br/> single-use needles, disposable materials, and high-quality certified inks that meet health and safety standards."
   },
   {
     id: 4,
