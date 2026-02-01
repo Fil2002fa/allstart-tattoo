@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer'
 import CircularText from './components/CurcularText/CircularText'
 import Image from 'next/image';
 import Videozoom from './components/Videozoom' 
+import OutroCard from './components/ImageScroll/Outrocard';
 
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
@@ -28,7 +29,7 @@ export default function Home() {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start 0.9', 'end 0.3']
+    offset: ['start 0.9', 'end 0.7']
   });
 
   const paragraph =
@@ -59,12 +60,12 @@ export default function Home() {
         </div>
       </span>
         </div>
-         <div className='absolute right-3 my-auto items-center bottom-140 cursor-pointer '>
+         <div className='absolute right-3  items-center top-115 cursor-pointer '>
           <CircularText />
          </div>
       </div>
 
-      <div className="md:w-3/5 ">
+      <div className="md:w-3/5 mt-170 ">
         <p ref={container} className={styles.paragraph} >
           {words.map((word, i) => {
             const start = i / words.length;
@@ -81,9 +82,9 @@ export default function Home() {
 
    
       <AppointmentSection /> 
-      
+          
       <ImageScroll /> 
-       
+       <OutroCard />
       <Faq />
       <Footer/>
     </div>

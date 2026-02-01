@@ -53,6 +53,11 @@ body.hide-scrollbar-gallery::-webkit-scrollbar {
   height: 0;
   display: none;
 }
+.outro-section {
+  background: #000; /* Fondamentale: sfondo solido */
+  position: relative;
+  z-index: 10;
+}
 
 
 /* globals.css */

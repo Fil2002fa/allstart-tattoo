@@ -10,7 +10,7 @@ export default function Faq() {
 
   return (
     <div>
-      <h1 className="flex justify-center text-[clamp(40px,10vw,70px)]">
+      <h1 className="flex justify-center text-[clamp(40px,10vw,70px)] text-red-700 font- py-15">
         FAQS****
       </h1>
 
@@ -19,10 +19,11 @@ export default function Faq() {
         const num = String(i + 1).padStart(2, "0");
         return (
           <div 
-             className={`border w-10/11 mx-auto uppercase transition-colors duration-300
-    ${isOpen ? "bg-red-600 text-black border-red-600" : "bg-transparent text-red-600 border-red-600"}
-  `}
->
+          key={i}
+             className={`border w-10/11 mx-auto uppercase transition-colors duration-300 mb-2
+            ${isOpen ? "bg-red-600 text-black border-red-600" : "bg-transparent text-red-600 border-red-600"}
+          `}
+        >
             
           <div className="p-2">
             <span className="text-[clamp(14px,2vw,20px)">
@@ -34,7 +35,7 @@ export default function Faq() {
               <p className="font-semibold">{f.question}</p>
 
               <button
-                className="cursor-pointer text-[clamp(40px,5vw,70px)] mr-2"
+                className="cursor-pointer text-[clamp(40px,5vw,70px)]  w-[1.2em] mr-2"
                 onClick={() => handleOpen(i)}
               >
                 {isOpen ? "-" : "+"}

@@ -8,7 +8,7 @@ export default function AppointmentSection() {
 
  return (
  
-  <div className='flex flex-col justify-center text-center mt-16 mb-18'>
+  <div className='flex flex-col justify-center text-center mt-16 mb-68'>
       <h1 className='text-center text-[clamp(45px,8vw,100px)] wm'>
         LET THE INK <br /> FLOW 
       </h1>
@@ -17,7 +17,8 @@ export default function AppointmentSection() {
       </p>
 
       <div className='mt-5 flex justify-center  '>
-             <button
+        
+            <button
                 className="
                     group flex items-center gap-4 px-3 py-2 border rounded-full cursor-pointer"
                  >
