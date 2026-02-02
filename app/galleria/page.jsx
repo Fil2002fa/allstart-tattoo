@@ -55,7 +55,7 @@ const handleHoverExit = () => {
   const trackRef = useRef(null);
 
   const cardData = [...Array(15).keys()];
-  const numberOfSets = 6;
+  const numberOfSets = 1;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -107,7 +107,7 @@ const handleHoverExit = () => {
     start: "center center",
     end: "center center",
     onEnter: () => {
-      const n = idx + 1; // ✅ 1..(15*numberOfSets)
+      const n = idx + 1; 
       if (activeIndexRef.current !== n) {
         activeIndexRef.current = n;
         setActiveIndex(n);
