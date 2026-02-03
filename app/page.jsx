@@ -2,7 +2,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef,useState } from 'react';
 import styles from './style.module.scss';
-import ImageScroll from './components/ImageScroll/ImageScroll'
 import Faq from "./components/Faq"
 import AppointmentSection from './components/AppointmentSection'
 import TransitionLink from './components/TransitionLink'
@@ -10,7 +9,8 @@ import Footer from './components/Footer/Footer'
 import CircularText from './components/CurcularText/CircularText'
 import Image from 'next/image';
 import Videozoom from './components/Videozoom' 
-import OutroCard from './components/ImageScroll/Outrocard';
+import OutroCard from './components/Outrocard'
+import Page from './components/Diagonal/Page'
 
 const Word = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
@@ -82,8 +82,8 @@ export default function Home() {
 
    
       <AppointmentSection /> 
-          
-      <ImageScroll /> 
+       <Page/>
+       
        <OutroCard />
       <Faq />
       <Footer/>

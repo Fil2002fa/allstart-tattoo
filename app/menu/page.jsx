@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import Link from "next/link";
 import { useTransitionRouter } from "next-view-transitions"; // 1. Importa il router delle transizioni
 import TransitionLink from "../components/TransitionLink";
@@ -12,6 +12,12 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
     { label: "CONTACT", url: "/contact" },
     { label: "FAQ", url: "/faq" },
   ];
+
+   useEffect(() => {
+    if (!menuAperto) return;
+    routes.forEach(r => router.prefetch?.(r.url));
+    router.prefetch?.("/"); // close link
+  }, [menuAperto]);
 
 
   return (

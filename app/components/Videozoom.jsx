@@ -78,8 +78,15 @@ export default function Videozoom() {
     <div ref={containerRef} className="w-full bg-red-200 h-full  flex items-center pointer-events-none ">
     <div
       ref={mediaWrapperRef}
-      className="absolute  w-52 h-30 bg-red-400"
-    />
+      className="absolute  w-52 h-30"
+    >  <video
+          className="w-full h-full object-cover"
+          src="/tattoo-bw.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        /></div>
   </div>
   );
 }
