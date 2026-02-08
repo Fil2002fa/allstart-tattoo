@@ -105,6 +105,7 @@ export default function ContactSection() {
                   <SocialLink label="Facebook" url="https://facebook.com/..." />
                    <SocialLink label="Pinterest" url="https://facebook.com/..." />
                 </div>
+                
               </div>
             </div>
           </div>
