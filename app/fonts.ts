@@ -1,5 +1,5 @@
 // app/fonts.ts
-import { Playfair_Display_SC, Overpass_Mono, Metal_Mania, Urbanist } from "next/font/google";
+import { Playfair_Display_SC, Overpass_Mono, Metal_Mania, Urbanist, Belanosima } from "next/font/google";
 
 export const playfair = Playfair_Display_SC({
   subsets: ["latin"],
@@ -23,6 +23,13 @@ export const metal = Metal_Mania({
 });
 
 export const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-urbanist",
+  display: "swap",
+});
+
+export const belanosima = Belanosima({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-urbanist",

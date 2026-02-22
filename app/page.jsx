@@ -10,7 +10,7 @@ import CircularText from './components/CurcularText/CircularText'
 import Image from 'next/image';
 import Videozoom from './components/Videozoom' 
 import Page from './components/Diagonal/Page'
-import { playfair, overpass, metal, urbanist } from "./fonts";
+import { playfair, overpass, metal, urbanist,belanosima } from "./fonts";
 
 
 
@@ -55,9 +55,9 @@ const words = paragraph.split(' ');
       44 Wickham St Prior's-Land,<br /> Limerick, V94 X2K5
     </p>
 
-    <TransitionLink href="/menu" className="px-4 font-bebas py-3 cursor-pointer">
-      MENU
-    </TransitionLink>
+     <TransitionLink href='/menu' className={`${belanosima.className} fpx-4 font-bebas py-3 cursor-pointer`}>
+        MENU
+      </TransitionLink>
   </div>
 </div>
 

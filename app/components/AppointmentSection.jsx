@@ -5,7 +5,7 @@ import { playfair, overpass, metal, urbanist } from "../fonts";
 export default function AppointmentSection() {
  
     
-    const word = "AGENDAMOS CITA"
+    const word = "BOOK NOW"
 
  return (
  
@@ -51,7 +51,7 @@ export default function AppointmentSection() {
             ))}
           </div>
 
-          {/* SECONDA RIGA (Entra dal basso) */}
+          
           <div className="flex absolute top-0 left-0">
             {word.split("").map((char, i) => (
               <span

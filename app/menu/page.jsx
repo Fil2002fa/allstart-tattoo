@@ -3,13 +3,14 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useTransitionRouter } from "next-view-transitions"; // 1. Importa il router delle transizioni
 import TransitionLink from "../components/TransitionLink";
-
+import { playfair, overpass, metal, urbanist,belanosima } from "../fonts";
 export default function FullScreenMenu({ menuAperto, toggleMenu }) {
   const router = useTransitionRouter(); // 2. Inizializza il router
 
   const routes = [
     { label: "GALLERIA", url: "/galleria" },
     { label: "CONTACT", url: "/contact" },
+    { label: "STUDIO", url: "/studio" },
     { label: "FAQ", url: "/faq" },
   ];
 
@@ -22,11 +23,16 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
 
   return (
     <div >
-      <TransitionLink href='/' className='fixed right-0 p-1.5 md:p-10 text-white'>
+       <TransitionLink href='/' className='fixed  p-1.5 md:p-10 text-white'>
+        <h1 className={`${playfair.className} text-[clamp(10px,2vw,22px)] font-semibold `}>
+            Allstar Ink Tattoo
+        </h1>
+      </TransitionLink>
+      <TransitionLink href='/' className={`${belanosima.className} fixed right-0 p-1.5 md:p-10 text-white`}>
         CLOSE
       </TransitionLink>
 
-      <ul className="flex flex-col justify-center min-h-screen px-10 gap-4">
+      <ul className={`${urbanist.className} flex flex-col font-semibold justify-center min-h-screen px-10 gap-4`}>
         {routes.map((route) => (
           <li key={route.label} className="list-none">
             
