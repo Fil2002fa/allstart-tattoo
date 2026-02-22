@@ -9,8 +9,16 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        "spin-slow": "spin 8s linear infinite", // 8s è più fluido per il testo
+        "spin-slow": "spin 8s linear infinite",
       },
+     fontFamily: {
+  bebas: ["Bebas Neue", "sans-serif"],
+  overpass: ["Overpass Mono", "monospace"],
+  metal: ["Metal Mania", "cursive"],
+  "playfair-sc": ["Playfair Display SC", "serif"],
+  playfair: ["Playfair Display", "serif"], // SOLO se lo usi davvero
+},
+
     },
   },
   plugins: [],

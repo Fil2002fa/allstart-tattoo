@@ -78,7 +78,7 @@ export default function Videozoom() {
     <div ref={containerRef} className="w-full bg-red-200 h-full  flex items-center pointer-events-none ">
     <div
       ref={mediaWrapperRef}
-      className="absolute  w-52 h-30"
+      className="absolute  w-60 h-35"
     >  <video
           className="w-full h-full object-cover"
           src="/tattoo-bw.mp4"

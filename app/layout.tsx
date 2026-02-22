@@ -1,15 +1,16 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ViewTransitions } from 'next-view-transitions'
- 
-import AppWrapper from "./components/AppWrapper"; // Importiamo il nuovo wrapper
 
-// ... (le definizioni dei font e metadata rimangono uguali) ...
+import { ViewTransitions } from 'next-view-transitions'
+
+import "./globals.css";
+import { Bebas_Neue, Overpass_Mono, Metal_Mania, Playfair_Display_SC } from '@next/font/google';
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Ink Tatto Studio', 
- 
 };
+
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="it">
-        <body>{children}</body>
+    
+          <body >
+          {children}
+          </body>
       </html>
     </ViewTransitions>
   )

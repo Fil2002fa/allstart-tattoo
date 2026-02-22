@@ -1,11 +1,8 @@
 @import "tailwindcss";
 
 
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
-}
 
+body { font-family: var(--font-sans); }
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -19,6 +16,9 @@
     --foreground: #ededed;
   }
 }
+
+
+
 
 /* Nasconde la scrollbar per Chrome, Safari e browser basati su Chromium */
 html::-webkit-scrollbar,

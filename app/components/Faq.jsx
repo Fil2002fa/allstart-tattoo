@@ -20,19 +20,21 @@ export default function Faq() {
         return (
           <div 
           key={i}
-             className={`border w-10/11 mx-auto uppercase transition-colors duration-300 mb-2
+             className={`border w-10/11 mx-auto uppercase transition-colors duration-300 mb-1
             ${isOpen ? "bg-red-600 text-black border-red-600" : "bg-transparent text-red-600 border-red-600"}
           `}
         >
             
-          <div className="p-2">
+          <div className="p-1">
             <span className="text-[clamp(14px,2vw,20px)">
               {num}
             </span>
          </div>
             <div className="flex flex-col">
-              <div className="py-2 px-2 md:px-6 flex justify-between text-[clamp(30px,4vw,50px)] uppercase">
-              <p className="font-semibold">{f.question}</p>
+              <div className=" px-2 md:px-6 flex justify-between text-[clamp(30px,4vw,50px)] uppercase">
+              <p className="font-semibold">
+                {f.question}
+              </p>
 
               <button
                 className="cursor-pointer text-[clamp(40px,5vw,70px)]  w-[1.2em] mr-2"
