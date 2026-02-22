@@ -5,7 +5,11 @@ import gsap from 'gsap';
 
 const Cursor = ({ isActive }) => {
   const cursorRef = useRef(null);
-
+useEffect(() => {
+  if (!isActive) {
+    gsap.set(cursorRef.current, { opacity: 0, scale: 0 });
+  }
+}, [isActive]);
   useEffect(() => {
     const cursor = cursorRef.current;
 

@@ -9,28 +9,9 @@ import Footer from './components/Footer/Footer'
 import CircularText from './components/CurcularText/CircularText'
 import Image from 'next/image';
 import Videozoom from './components/Videozoom' 
-import OutroCard from './components/Outrocard'
 import Page from './components/Diagonal/Page'
-import {  Playfair_Display_SC,Overpass_Mono,Metal_Mania, Urbanist } from "next/font/google"
+import { playfair, overpass, metal, urbanist } from "./fonts";
 
-const playfair = Playfair_Display_SC ({
-  subsets: ['latin'],
-  weight: ['400', '700']
-})
-const overpass = Overpass_Mono ({
-  subsets: ['latin'],
-  weight: ['400', '700']
-})
-
-const metal = Metal_Mania ({
-  subsets: ['latin'],
-  weight: ['400',]
-})
-
-const urbanist = Urbanist ({
-  subsets: ['latin'],
- weight: ['400', '600','700']
-})
 
 
 
@@ -56,8 +37,8 @@ export default function Home() {
   });
 
   const paragraph =
-    "IF YOU, SERVANT OF THAT PIERCING CLIMAX, FOR YOU, TATTOOS ON F*CKING A GOD-LEVEL. LET THE DAMN INK FLOW!";
-  const words = paragraph.split(' ');
+  "IF YOU, SERVANT OF THAT PIERCING CLIMAX, IF YOU BREATHE THAT ELECTRIC TENSION, FOR YOU, TATTOOS ON F*CKING GOD-LEVEL, NO MERCY, NO FILTERS. LET THE DAMN INK FLOW WILD AND FEARLESS!";
+const words = paragraph.split(' ');
 
   return (
    <div className="min-h-[300vh]">
@@ -115,7 +96,7 @@ export default function Home() {
 
   {/* Sezione Paragraph */}
   <div className="md:w-3/5 mt-170 ">
-    <p ref={container} className={`${styles.paragraph}  text-[clamp(100px,10vw,150px)]`}>
+    <p ref={container} className={`${styles.paragraph} ${urbanist.className} font-semibold tracking-wide   text-[clamp(100px,10vw,150px)]`}>
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;
@@ -130,7 +111,7 @@ export default function Home() {
 
   <AppointmentSection /> 
   <Page/>
-  <OutroCard />
+
   <Faq />
   <Footer/>
 </div>
