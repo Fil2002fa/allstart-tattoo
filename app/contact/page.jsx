@@ -177,16 +177,40 @@ export default function Page() {
               </span>
             </label>
 
-            {/* 3. MODIFICA: Il pulsante è sempre renderizzato, cambia solo stile e stato disabled */}
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className={`${urbanist.className} ml-auto inline-flex items-center gap-3 rounded-full bg-[#161A1D] px-7 py-3 uppercase text-white font-bold tracking-widest transition-all duration-300 ${
-                canSubmit ? "opacity-100 cursor-pointer" : "opacity-30 cursor-not-allowed grayscale"
-              }`}
+            <button className="group flex items-center gap-4 px-6 py-4 bg-[#161A1D] rounded-full cursor-pointer">
+      <span className="relative w-8 h-8 bg-red-700 rounded-full flex justify-center items-center">
+        <div className="absolute rounded-full bg-black w-2.5 h-2.5 transition-all duration-500 group-hover:scale-0" />
+        <div className="absolute scale-0 group-hover:scale-100 transition-all duration-500">
+          <ArrowRight size={14} />
+        </div>
+      </span>
+
+      <span className="relative block overflow-hidden text-white uppercase leading-[1.1] cursor-pointer">
+        <div className="flex">
+          {word.split("").map((char, i) => (
+            <span
+              key={i}
+              style={{ transitionDelay: `${i * 0.03}s` }}
+              className={`${urbanist.className} inline-block font-semibold transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full`}
             >
-              Submit <span className="inline-block h-2 w-2 rounded-full bg-red-600" />
-            </button>
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex absolute top-0 left-0">
+          {word.split("").map((char, i) => (
+            <span
+              key={i}
+              style={{ transitionDelay: `${i * 0.03}s` }}
+              className={`${urbanist.className} inline-block font-semibold transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0`}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </div>
+      </span>
+    </button>
           </div>
         </form>
       </div>
