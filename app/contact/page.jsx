@@ -4,6 +4,8 @@ import { FaPinterestP, FaFacebookF, FaInstagram } from "react-icons/fa";
 import TransitionLink from '../components/TransitionLink'
 import { playfair, overpass, metal, urbanist, belanosima } from "../fonts";
 import ContactSection from '../components/Footer/ContactSection'
+import { ArrowRight } from 'lucide-react'
+import InstagramCarousel from "../components/InstagramCarousel";
 
 export default function Page() {
   const [age, setAge] = useState(null);
@@ -14,7 +16,7 @@ export default function Page() {
     phone: "",
     idea: "",
   });
-
+  const word = "SUBMIT"
   // 1. MODIFICA: idea non è più obbligatoria per canSubmit
   const canSubmit =
     form.name.trim() !== "" &&
@@ -25,7 +27,12 @@ export default function Page() {
 
   const iconBase =
     "h-11 w-11 rounded-full border border-white/30 flex items-center justify-center hover:border-white/70 transition";
-
+const isValid =
+  form.name.trim() &&
+  form.email.trim() &&
+  form.phone.trim() &&
+  age !== null &&
+  consent;
   return (
     <div className="px-10 py-5">
     <div className="fixed top-0  left-0 right-0 z-50">
@@ -40,7 +47,7 @@ export default function Page() {
       href="/menu"
       className={`${belanosima.className} py-3 cursor-pointer`}
     >
-      MENU
+      CLOSE
     </TransitionLink>
   </div>
 </div>
@@ -177,43 +184,25 @@ export default function Page() {
               </span>
             </label>
 
-            <button className="group flex items-center gap-4 px-6 py-4 bg-[#161A1D] rounded-full cursor-pointer">
-      <span className="relative w-8 h-8 bg-red-700 rounded-full flex justify-center items-center">
-        <div className="absolute rounded-full bg-black w-2.5 h-2.5 transition-all duration-500 group-hover:scale-0" />
-        <div className="absolute scale-0 group-hover:scale-100 transition-all duration-500">
-          <ArrowRight size={14} />
-        </div>
-      </span>
-
-      <span className="relative block overflow-hidden text-white uppercase leading-[1.1] cursor-pointer">
-        <div className="flex">
-          {word.split("").map((char, i) => (
-            <span
-              key={i}
-              style={{ transitionDelay: `${i * 0.03}s` }}
-              className={`${urbanist.className} inline-block font-semibold transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full`}
-            >
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex absolute top-0 left-0">
-          {word.split("").map((char, i) => (
-            <span
-              key={i}
-              style={{ transitionDelay: `${i * 0.03}s` }}
-              className={`${urbanist.className} inline-block font-semibold transition-transform duration-350 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-full group-hover:translate-y-0`}
-            >
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
-        </div>
-      </span>
-    </button>
+            <button
+            type="submit"
+            disabled={!isValid}
+            className={[
+              "px-6 py-4 rounded-full transition flex items-center justify-center",
+              "bg-[#161A1D]",
+              isValid
+                ? "cursor-pointer opacity-100"
+                : "cursor-not-allowed opacity-50",
+            ].join(" ")}
+          >
+            <h1 className={`${urbanist.className} text-white uppercase font-semibold tracking-wide`}>
+              SUBMIT
+            </h1>
+        </button>
           </div>
         </form>
       </div>
+      <InstagramCarousel />
        <ContactSection/>
     </div>
   );
