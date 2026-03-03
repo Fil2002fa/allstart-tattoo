@@ -47,9 +47,9 @@ export default function Faq() {
 
         {/* Bottone Destra */}
         <div className="  ml-4 p-1 leading-none
-    inline-flex items-center justify-center
-    w-[1.1em] h-[1.1em]
-    text-[clamp(35px,5vw,70px)]">
+            inline-flex items-center justify-center
+            w-[1.1em] h-[1.1em]
+            text-[clamp(35px,5vw,70px)]">
           {isOpen ? "-" : "+"}
         </div>
       </div>

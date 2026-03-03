@@ -10,7 +10,7 @@ export default function Footer() {
   
   const word = "BOOK NOW"
   return (
-    <div className="mt-40">
+    <div className="mt-40 px-10 py-5">
       <div className="mt-40  mb-50 relative">
   {/* BG */}
   <div className="pointer-events-none opacity-40 absolute right-0 top-0 -z-10
@@ -52,9 +52,7 @@ export default function Footer() {
 
 
       <ContactSection />
-       <div className="flex justify-center mt-40 text-[clamp(34px,15vw,150px)]">
-        <h1 className={`${metal.className} `}> Allstar Ink Tattoo</h1>
-       </div>
+       
     </div>
   );
 }
