@@ -75,7 +75,7 @@ export default function Videozoom() {
   }, []);
 
     return (
-    <div ref={containerRef} className="w-full bg-red-200 h-full  flex items-center pointer-events-none ">
+    <div ref={containerRef} className="w-full bg-red-200 h-full mb-10 flex items-center pointer-events-none ">
     <div
       ref={mediaWrapperRef}
       className="absolute  w-60 h-35"

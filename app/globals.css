@@ -40,7 +40,8 @@ body::-webkit-scrollbar {
 /* Nasconde la scrollbar per Firefox e IE/Edge */
 html, body {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  scrollbar-width: none; 
+    overflow-x: hidden; 
 }
 /* Nasconde la scrollbar per IE, Edge e Firefox */
 body {

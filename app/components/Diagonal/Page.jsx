@@ -165,17 +165,17 @@ const handleParallax = () => {
   const rowClass = `flex ${gapClass} items-center will-change-transform`;
 
   return (
-    <div className="bg-gray-900 overflow-x-hidden">
+    <div className="bg-gray-900 overflow-x-hidden overflow-y-hidden">
       <Cursor isActive={isHovered} />
 
       <section
         ref={containerRef}
         // Aumentiamo l'altezza minima della sezione per dare respiro allo scroll
-        className={`relative h-[150vh] sm:h-[200vh] bg-black ${isHovered ? "cursor-none" : ""}`}
+        className={`relative h-[55vh] sm:h-[100vh] bg-black ${isHovered ? "cursor-none" : ""}`}
         onPointerEnter={() => setIsHovered(true)}
         onPointerLeave={() => setIsHovered(false)}
       >
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+       <div className="sticky  sm:h-screen flex items-center justify-center overflow-hidden">
           
           {/* ✅ IL FIX: 
               1. Abbiamo aggiunto -translate-y-[10%] per tirare su le righe e far vedere la quarta.

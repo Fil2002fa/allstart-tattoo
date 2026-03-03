@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { playfair, overpass, metal, urbanist } from "../fonts";
-
+import TransitionLink from "./TransitionLink";
 const BASE_IMAGES = [
   "/AppointmentSection/1.png",
   "/AppointmentSection/2.png",
@@ -15,39 +15,81 @@ export default function AppointmentSection() {
   const word = "BOOK NOW";
   const [images, setImages] = useState(BASE_IMAGES); // ordine stabile SSR
 
-  useEffect(() => {
-    // shuffle SOLO in client
-    const shuffled = [...BASE_IMAGES].sort(() => Math.random() - 0.5);
-    setImages(shuffled);
-  }, []);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden px-8 ">
       <div className="pointer-events-none absolute inset-0">
-        <img
-          src={images[0]}
-          alt=""
-          className="absolute top-0 left-6 lg:left-20 xl:left-32 w-44 md:w-56 opacity-80 "
-        />
-        <img
-          src={images[1]}
-          alt=""
-          className="absolute top-10 right-8 lg:right-20 xl:right-32 w-44 md:w-60 opacity-80 "
-        />
-        <img
-          src={images[2]}
-          alt=""
-          className="absolute bottom-10 left-10 lg:left-24 xl:left-36 w-52 md:w-72 opacity-80"
-        />
-        <img
-          src={images[3]}
-          alt=""
-          className="absolute bottom-8 right-10 lg:right-24 xl:right-36 w-48 md:w-64 opacity-80 "
-        />
+       <div className="pointer-events-none absolute inset-0 z-0 ">
+  {/* top-left */}
+ {/* top-left */}
+{/* top-left */}
+<img
+  src={images[0]}
+  alt=""
+  className="
+    absolute
+    top-2 left-2
+    sm:top-4 sm:left-6
+    lg:-top-6 lg:left-16
+    xl:-top-10 xl:left-28
+    2xl:-top-32 2xl:left-40
+    w-28 sm:w-32 md:w-36 lg:w-82 
+    opacity-70 sm:opacity-80 lg:opacity-90
+  "
+/>
+
+{/* top-right */}
+<img
+  src={images[1]}
+  alt=""
+  className="
+    absolute
+    top-14 right-2
+    sm:top-16 sm:right-6
+    lg:-top-2 lg:right-16
+    xl:-top-6 xl:right-28
+    2xl:-top-18 2xl:right-40
+    w-28 sm:w-32 md:w-36 lg:w-86 
+    opacity-70 sm:opacity-80 lg:opacity-90
+  "
+/>
+
+{/* bottom-left (lasciato bottom-24 su mobile come volevi) */}
+<img
+  src={images[2]}
+  alt=""
+  className="
+    absolute
+    bottom-14 left-2
+    sm:bottom-8 sm:left-6
+    lg:bottom-0 lg:left-20
+    xl:bottom-12 xl:left-32
+    2xl:bottom-2 2xl:left-44
+    w-32 sm:w-36 md:w-40 lg:w-84
+    opacity-70 sm:opacity-80 lg:opacity-90
+  "
+/>
+
+{/* bottom-right */}
+<img
+  src={images[3]}
+  alt=""
+  className="
+    absolute
+    bottom-12 right-2
+    sm:bottom-6 sm:right-6
+    lg:bottom-4 lg:right-20
+    xl:bottom-2 xl:right-32
+    2xl:bottom-0 2xl:right-44
+    w-32 sm:w-36 md:w-40 lg:w-80
+    opacity-70 sm:opacity-80 lg:opacity-90
+  "
+/>
+</div>
       </div>
 
       {/* CONTENUTO */}
-      <div className="relative flex flex-col justify-center text-center mt-16 mb-68">
+      <div className="relative z-10 flex flex-col justify-center text-center xl:mt-16 mt-32 xl:mt-96 mb-68 px-6 sm:px-10 lg:px-0">
         <h1 className={`${urbanist.className} font-semibold text-center text-[clamp(45px,8vw,100px)]`}>
           LET THE INK <br />
         </h1>
@@ -72,7 +114,9 @@ export default function AppointmentSection() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <button className="group flex items-center gap-4 px-4 py-4 bg-[#161A1D] rounded-full cursor-pointer">
+          <TransitionLink
+          href="/contact"
+             className="group flex items-center gap-4 px-4 py-4 bg-[#161A1D] rounded-full cursor-pointer">
             <span className="relative w-8 h-8 bg-red-700 rounded-full flex justify-center items-center">
               <div className="absolute rounded-full bg-black w-2.5 h-2.5 transition-all duration-500 group-hover:scale-0" />
               <div className="absolute scale-0 group-hover:scale-100 transition-all duration-500">
@@ -105,7 +149,8 @@ export default function AppointmentSection() {
                 ))}
               </div>
             </span>
-          </button>
+          
+          </TransitionLink>
         </div>
       </div>
     </section>

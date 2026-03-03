@@ -29,10 +29,10 @@ export default function ContactSection() {
   }
 
   return (
-    <div className="mt-40">
-      <div className="pt-36 px-10 py-5 flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
+    <div className="mt-6 lg:mt-36">
+      <div className="  py-5 flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
         {/* SINISTRA */}
-        <div className="flex flex-col items-start gap-20">
+        <div className="flex flex-col xl:items-start items-center xl:gap-20 gap-6">
           <h1 className={`${urbanist.className} text-[clamp(34px,10vw,80px)] font-bold leading-none`}>
             READY TO BOOK?
           </h1>
@@ -176,7 +176,7 @@ export default function ContactSection() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-40 text-[clamp(34px,15vw,150px)]">
+      <div className="flex justify-center mt-6 lg:mt-36 text-[clamp(24px,13vw,150px)]">
         <h1 className={`${metal.className}`}>Allstar Ink Tattoo</h1>
       </div>
     </div>

@@ -10,12 +10,12 @@ export default function Footer() {
   
   const word = "BOOK NOW"
   return (
-    <div className="mt-40 px-10 py-5">
-      <div className="mt-40  mb-50 relative">
+    <div className="px-2 sm:px-6 md:px-8 lg:px-10 ">
+      <div className="  relative">
   {/* BG */}
   <div className="pointer-events-none opacity-40 absolute right-0 top-0 -z-10
                   h-[560px] w-[560px]
-                  md:h-[820px] md:w-[820px]">
+                  md:h-[820px] md:w-[820px] hidden min-[1200px]:block">
     <Image
       src="/Bg-footer.png"
       alt="Footer background"
@@ -27,11 +27,11 @@ export default function Footer() {
 
 
       <div className="pt-24 md:pt-32">
-        <h1 className={`${urbanist.className} mb-5 text-[clamp(44px,12vw,120px)] font-bold md:mb-10 `}>
+        <h1 className={`${urbanist.className} mb-5 text-[clamp(20px,10vw,120px)] font-bold md:mb-10 `}>
           !MAKE YOUR MARK!
         </h1>
 
-        <p className={`${urbanist.className} mb-5 text-[clamp(14px,4vw,25px)] md:mb-40 `}>
+        <p className={`${urbanist.className} mb-5 text-[clamp(12px,4vw,25px)] md:mb-40 `}>
           Stop thinking, start inking. Book your session <br /> below.
         </p>
 
@@ -45,9 +45,9 @@ export default function Footer() {
 
 
            
-        <div className=" h-[1px] w-full bg-white/30 mr-10" />
+        <div className=" h-[1px] w-full bg-white/30 mt-6 lg:mt-36" />
 
-     <div className="h-[1px] w-full bg-white/30 mr-10" />
+     
 
 
 
