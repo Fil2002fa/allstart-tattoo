@@ -38,7 +38,7 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
             
             <TransitionLink
               href={route.url}
-              className="group block relative w-fit overflow-hidden text-white uppercase text-[clamp(40px,8vw,100px)] leading-[1.1]"
+              className="group block relative w-fit overflow-hidden text-center md:text-start  text-white uppercase text-[clamp(60px,10vw,100px)] leading-[1.1]"
             >
               
               <div className="flex">

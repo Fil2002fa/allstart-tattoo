@@ -2,9 +2,8 @@
 
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import TransitionLink from "../components/TransitionLink";
-import { playfair, belanosima } from "../fonts";
 import ContactSection from "../components/Footer/ContactSection";
-
+import { playfair, overpass, belanosima } from "../fonts";
 
 export default function Homepage() {
   const items = useMemo(() => {
@@ -93,18 +92,32 @@ export default function Homepage() {
 }
 
   return (
-    <main className="min-h-screen bg-black px-10 py-5">
-      <header className="flex items-center justify-between px-6 pt-6">
-        <TransitionLink href="/">
-          <h1 className={`${playfair.className} text-[clamp(10px,2vw,22px)] font-semibold text-white`}>
-            Allstar Ink Tattoo
-          </h1>
+    <main className="min-h-screen bg-black px-2 sm:px-6 md:px-8 lg:px-10">
+        <div className="fixed top-0 left-0 z-20 w-full bg-transparent text-white px-2.5 md:px-10 py-2">
+      <div className="flex items-center">
+        <TransitionLink
+          href="/"
+          className={`${playfair.className} text-[clamp(15px,3vw,22px)] font-semibold`}
+        >
+          Allstar Ink Tattoo
         </TransitionLink>
 
-        <TransitionLink href="/menu" className={`${belanosima.className} py-3 cursor-pointer text-white`}>
-          CLOSE
-        </TransitionLink>
-      </header>
+        <div className="ml-auto flex items-center gap-10">
+          <p
+            className={`${overpass.className} hidden min-[900px]:block text-right text-[clamp(10px,2vw,15px)] leading-tight`}
+          >
+            44 Wickham St Prior&apos;s-Land,<br /> Limerick, V94 X2K5
+          </p>
+
+          <TransitionLink
+            href="/menu"
+            className={`${belanosima.className} px-4 py-3 cursor-pointer`}
+          >
+            CLOSE
+          </TransitionLink>
+        </div>
+      </div>
+    </div>
 
       <div className="flex items-center h-[320px] md:h-[380px]">
         <h1 className="uppercase text-white tracking-tight text-[clamp(48px,8vw,120px)]">
@@ -112,40 +125,38 @@ export default function Homepage() {
         </h1>
       </div>
 
-      {/* Grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
-       {items.map((img, idx) => {
-  const ratioClass = getRatioFromId(img.id);
+      {/* Nuova Galleria Giustificata */}
+<div className="grid gap-4 px-2 grid-cols-2 md:grid-cols-3 auto-rows-[260px] sm:auto-rows-[350px] md:auto-rows-[450px]">
+  {items.map((img, idx) => {
+    // wide SOLO da md in su (quando hai 3 colonne)
+    const wide = idx % 5 === 0;
 
-  return (
-    <figure
-      key={img.id}
-      className="mb-6 break-inside-avoid overflow-hidden bg-white/5 rounded-lg"
-    >
-      <button
-        type="button"
-        onClick={() => openAt(idx)}
-        className="block w-full text-left"
-        aria-label={`Apri ${img.alt}`}
+    return (
+      <div
+        key={img.id}
+        className={`relative overflow-hidden rounded-lg bg-white/5 col-span-1 ${
+          wide ? "md:col-span-2" : ""
+        }`}
       >
-        <div className={`relative w-full ${ratioClass}`}>
+        <button
+          type="button"
+          onClick={() => openAt(idx)}
+          className="w-full h-full block"
+        >
           <img
             src={img.src}
             alt={img.alt}
-            className="absolute inset-0 w-full h-full object-cover hover:opacity-90 transition"
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
-        </div>
-      </button>
-    </figure>
-  );
-})}
+        </button>
       </div>
-
+    );
+  })}
+</div>
       <ContactSection />
 
-      {/* Lightbox Modal */}
-    {/* Lightbox Modal */}
+     
 {isOpen && (
   <div className="fixed inset-0 z-50" role="dialog" aria-modal="true">
     {/* OVERLAY: click qui chiude */}

@@ -34,24 +34,33 @@ const isValid =
   age !== null &&
   consent;
   return (
-    <div className="px-10 py-5">
-    <div className="fixed top-0  left-0 right-0 z-50">
-  <div className="px-10 py-5 flex items-center justify-between">
-    <TransitionLink href="/">
-      <h1 className={`${playfair.className} text-[clamp(10px,2vw,22px)] font-semibold`}>
-        Allstar Ink Tattoo
-      </h1>
-    </TransitionLink>
-
-    <TransitionLink
-      href="/menu"
-      className={`${belanosima.className} py-3 cursor-pointer`}
-    >
-      CLOSE
-    </TransitionLink>
-  </div>
-</div>
-      <h1 className={`${urbanist.className} text-[clamp(48px,8vw,100px)] font-bold mt-10`}>
+    <div className="px-2 sm:px-6 md:px-8 lg:px-10">
+      <div className="fixed top-0 left-0 z-20 w-full bg-transparent text-white px-2.5 md:px-10 py-2">
+          <div className="flex items-center">
+             <TransitionLink
+              href="/"
+              className={`${playfair.className} text-[clamp(15px,3vw,22px)] font-semibold`}
+            >
+              Allstar Ink Tattoo
+            </TransitionLink>
+                
+            <div className="ml-auto flex items-center gap-10">
+              <p
+                className={`${overpass.className} hidden min-[900px]:block text-right text-[clamp(10px,2vw,15px)] leading-tight`}
+              >
+                44 Wickham St Prior&apos;s-Land,<br /> Limerick, V94 X2K5
+              </p>
+    
+              <TransitionLink
+                href="/menu"
+                className={`${belanosima.className} px-4 py-3 cursor-pointer`}
+              >
+                CLOSE
+              </TransitionLink>
+            </div>
+          </div>
+        </div>
+      <h1 className={`${urbanist.className} text-[clamp(22px,6vw,100px)] font-bold mt-20`}>
         BOOK AN APPOINTMENT!!
       </h1>
 
@@ -85,7 +94,7 @@ const isValid =
         <form
           action="https://formspree.io/f/mvzbobjj"
           method="POST"
-          className="relative mx-auto w-9/10 text-black max-w-none bg-[#e50b0b] py-6 px-5"
+          className="relative mx-auto w-full text-black max-w-none bg-[#e50b0b] py-6 px-5"
         >
           <h1 className={`${urbanist.className} uppercase font-bold tracking-tight leading-[1] text-[22px] sm:text-[36px] md:text-[52px]`}>
             Leave your details and we’ll book an appointment

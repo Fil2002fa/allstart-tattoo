@@ -1,10 +1,10 @@
+"use client";
 
-'use client'
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./style.module.css";
 
-export default function HeroReveal ({onComplete}) {
+export default function HeroReveal({ onComplete }) {
   const heroRef = useRef(null);
   const bgRef = useRef(null);
   const videoRef = useRef(null);
@@ -14,53 +14,87 @@ export default function HeroReveal ({onComplete}) {
     const video = videoRef.current;
     if (!bg || !video) return;
 
-    gsap.set(bg, {
-  clipPath: "polygon(35% 30%, 65% 30%, 65% 60%, 35% 60%)",
-   yPercent: 0,
-    willChange: "transform, clip-path",
-});
+    let tl;
 
+    const build = () => {
+      tl?.kill();
 
-    gsap.set(video, { scale: 1 });
+      const w = window.innerWidth;
 
-    const tl = gsap.timeline({ 
-      paused: true,
-       onComplete: () => onComplete?.(),
-    });
+      // ✅ Responsive: quadrato più grande su mobile, più piccolo su desktop
+      // (così non sembra “perso” su schermi piccoli)
+      const startClip =
+        w < 640
+          ? "polygon(20% 25%, 80% 25%, 80% 65%, 20% 65%)"
+          : w < 1024
+          ? "polygon(28% 28%, 72% 28%, 72% 62%, 28% 62%)"
+          : "polygon(35% 30%, 65% 30%, 65% 60%, 35% 60%)";
 
-    // Resti 1s sul quadrato
-    tl.to({}, { duration: 1 });
+      // ✅ Timing più veloce su mobile
+      const hold = w < 640 ? 0.5 : 1;
+      const expand = w < 640 ? 1.1 : 1.6;
+      const slideUp = w < 640 ? 1.4 : 2.0;
+      const slideGap = w < 640 ? 0.1 : 0.2;
 
-    // Quadrato -> full screen
-    tl.to(bg, {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 1.6,
-      ease: "power4.inOut",
-    });
+      gsap.set(bg, {
+        clipPath: startClip,
+        yPercent: 0,
+        willChange: "transform, clip-path",
+      });
 
-    // Zoom -> normale (in sync)
-    tl.to(
-      video,
-      { scale: 1, duration: 1.6, ease: "power4.inOut" },
-      "<"
-    );
+      gsap.set(video, { scale: 1 });
 
-    tl.to(bg, {
-    yPercent: -110,       // -100 basta, -110 assicura che esca completamente
-    duration: 2,
-    ease: "power4.inOut",
-  }, "+=0.2");  
+      tl = gsap.timeline({
+        paused: true,
+        onComplete: () => onComplete?.(),
+      });
 
-    const onReady = () => tl.play(0);
+      // resta un attimo sul quadrato
+      tl.to({}, { duration: hold });
+
+      // quadrato -> full screen
+      tl.to(bg, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: expand,
+        ease: "power4.inOut",
+      });
+
+      // zoom video (se vuoi puoi fare 1.03 su desktop per un minimo “push”)
+      tl.to(
+        video,
+        { scale: 1, duration: expand, ease: "power4.inOut" },
+        "<"
+      );
+
+      // slide via
+      tl.to(
+        bg,
+        {
+          yPercent: -110,
+          duration: slideUp,
+          ease: "power4.inOut",
+        },
+        `+=${slideGap}`
+      );
+
+      tl.play(0);
+    };
+
+    const onReady = () => build();
 
     if (video.readyState >= 2) onReady();
     else video.addEventListener("canplay", onReady, { once: true });
 
+    // ✅ Rebuild su resize/orientation change
+    const onResize = () => build();
+    window.addEventListener("resize", onResize);
+
     return () => {
       video.removeEventListener("canplay", onReady);
-      tl.kill();
+      window.removeEventListener("resize", onResize);
+      tl?.kill();
     };
-  }, []);
+  }, [onComplete]);
 
   return (
     <main className={styles.page}>
@@ -78,7 +112,6 @@ export default function HeroReveal ({onComplete}) {
           />
         </div>
       </section>
-     
     </main>
   );
 }

@@ -25,20 +25,24 @@ useEffect(() => {
     };
 
     // Effetto click (espansione)
-    const handleExpand = () => {
-      cursor.classList.add(styles.expand);
-      setTimeout(() => {
-        cursor.classList.remove(styles.expand);
-      }, 500);
-    };
+   const handleExpand = () => {
+  // Usiamo GSAP invece della classe CSS
+  gsap.to(cursor, {
+    scale: 1.5,
+    duration: 0.2,
+    yoyo: true, // Torna indietro automaticamente
+    repeat: 1,  // Ripete una volta (quindi fa: scala su -> scala giù)
+    ease: "power2.out",
+    overwrite: "auto" // Evita conflitti se clicchi velocemente
+  });
+};
 
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('click', handleExpand);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
-      window.removeEventListener('click', handleExpand);
-    };
+         };
   }, []);
 
 

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Cursor from "../Cursor/Cursor";
-
+import TransitionLink from "../TransitionLink";
 export default function HorizontalParallaxGallery() {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -167,8 +167,10 @@ const handleParallax = () => {
   return (
     <div className="bg-gray-900 overflow-x-hidden overflow-y-hidden">
       <Cursor isActive={isHovered} />
-
-      <section
+       
+        <TransitionLink
+         href="/galleria">
+          <section
         ref={containerRef}
         // Aumentiamo l'altezza minima della sezione per dare respiro allo scroll
         className={`relative h-[55vh] sm:h-[100vh] bg-black ${isHovered ? "cursor-none" : ""}`}
@@ -221,7 +223,8 @@ const handleParallax = () => {
 
           </div>
         </div>
-      </section>
+       </section>
+      </TransitionLink>
     </div>
   );
 }
