@@ -21,21 +21,37 @@ export default function Home() {
 
     <Header/>
  
-    <div className="flex relative justify-center items-center text-end xl:pt-45 pt-35 bg-black">
-        <div className="text-white text-[clamp(45px,15vw,180px)] font-bold leading-none">
-          <h1
-              className={`${metal.className} text-[#D60505] block 
-              text-[clamp(30px,8vw,120px)] text-start xl:text-end leading-[0.1] xl:mr-15 tracking-wide `}
-            >
-              ONE OF A KIND
+    <div className="flex relative justify-center items-center text-end xl:pt-45 pt-35 bg-black  py-2">
+        <div className="text-white text-[clamp(45px,15vw,180px)] font-bold leading-none ">
+        <div>
+           <h1
+          className={`${metal.className} text-[#D60505] block
+          text-[clamp(30px,8vw,120px)] text-start xl:text-end leading-[0.1] xl:mr-15 tracking-wide
+         animate-textSlideUp [animation-delay:0ms]`}
+        >
+          ONE OF A KIND
+        </h1>
+        </div>
+
+       <div className='overflow-hidden'>
+         <h1
+          className={`${urbanist.className} leading-[0.7] xl:leading-[1] font-semibold
+           animate-textSlideUp [animation-delay:1800ms] `}
+        >
+          TATTOO
+        </h1>
+       </div>
+
+        <span className="flex xl:mr-50 uppercase gap-10 animate-riseIn ">
+            <span className={`${urbanist.className} mr-5 xl:mr-0 font-semibold overflow-hidden`}>
+            <h1 className='animate-textSlideUp [animation-delay:1800ms] '>
+              STUDIO
             </h1>
-            <h1 className={`${urbanist.className} leading-[0.7] xl:leading-[1] font-semibold`}>TATTOO</h1> 
-          <span className="flex xl:mr-50  uppercase gap-10">
-          <span className={`${urbanist.className} mr-5 xl:mr-0 font-semibold`}>STUDIO</span>
-            <div className="hidden xl:block mr-10 pointer-events-auto">
-              <Videozoom />
-            </div>
-          </span>
+            </span>
+          <div className="hidden xl:block mr-10 pointer-events-auto ">
+            <Videozoom />
+          </div>
+        </span>
         </div>
 
         <div className='hidden min-[1200px]:block absolute right-3 items-center top-115 cursor-pointer '>

@@ -100,3 +100,23 @@ body.hide-scrollbar-gallery::-webkit-scrollbar {
 ::view-transition-old(root) {
   z-index: 1; /* La vecchia pagina sta sotto */
 }
+
+@keyframes textSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mask {
+  overflow: hidden;
+  display: block;
+}
+
+.animate-textSlideUp {
+  animation: textSlideUp 1.5s cubic-bezier(0.77, 0, 0.175, 1) both;
+}

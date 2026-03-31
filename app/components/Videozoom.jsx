@@ -40,10 +40,10 @@ export default function Videozoom() {
         scrollTrigger: {
           trigger: container,
           start: " 50%",
-          end: "+=100%",
-          scrub: 0.8,
+          end: "+=200%",
+          scrub: 1.2,
           pin: true,
-          pinSpacing: true, // ✅ molto più stabile in React rispetto a false
+          pinSpacing: true, 
           invalidateOnRefresh: true,
         },
       });
@@ -75,10 +75,10 @@ export default function Videozoom() {
   }, []);
 
     return (
-    <div ref={containerRef} className="w-full bg-red-200 h-full mb-10 flex items-center pointer-events-none ">
+    <div ref={containerRef} className="w-full h-full flex items-center pointer-events-none ">
     <div
       ref={mediaWrapperRef}
-      className="absolute  w-60 h-35"
+      className="absolute  w-53 h-35"
     >  <video
           className="w-full h-full object-cover"
           src="/tattoo-bw.mp4"
