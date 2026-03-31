@@ -5,10 +5,14 @@ import "./globals.css";
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
-  title: 'Ink Tatto Studio', 
+  title: 'AllStar Tattoo Studio',
+  description: 'Studio di tatuaggi professionale',
+  icons: {
+    icon: '/icon.ico', // Percorso relativo alla cartella public o gestito da Next.js in app/
+    // Se hai versioni diverse puoi aggiungerle qui:
+    apple: '/apple-touch-icon.png', 
+  },
 };
-
-
 
 
 export default function RootLayout({
