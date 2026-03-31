@@ -41,7 +41,7 @@ export default function Videozoom() {
           trigger: container,
           start: " 50%",
           end: "+=200%",
-          scrub: 1.2,
+          scrub: 0.8,
           pin: true,
           pinSpacing: true, 
           invalidateOnRefresh: true,

@@ -11,7 +11,7 @@ export default function FullScreenMenu({ menuAperto, toggleMenu }) {
     { label: "GALLERIA", url: "/galleria" },
     { label: "CONTACT", url: "/contact" },
     { label: "STUDIO", url: "/studio" },
-    { label: "FAQ", url: "/faq" },
+    { label: "FAQ", url: "/#faq" },
   ];
 
    useEffect(() => {

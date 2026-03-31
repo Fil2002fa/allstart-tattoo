@@ -75,7 +75,7 @@ export default function Home() {
     <Paragraph />
     <AppointmentSection />
     <Page />
-    <Faq />
+    <Faq id="faq" />
     <Footer />
   </main>
 </div>

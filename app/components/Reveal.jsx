@@ -1,7 +1,7 @@
 import { useReveal } from "../hook/useReveal";
 
 const Reveal = ({ children, delay = "0ms", className = "" }) => {
-  const [ref, isVisible] = useReveal(0.2);
+  const [ref, isVisible] = useReveal(0.05);
 
   return (
     <div ref={ref} className={`mask ${className}`}>

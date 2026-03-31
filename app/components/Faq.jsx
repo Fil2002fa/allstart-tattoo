@@ -3,7 +3,7 @@ import { faqData } from "../faq";
 import { overpass, urbanist } from "../fonts";
 import Reveal from './Reveal'
 
-export default function Faq() {
+export default function Faq({ id }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   function handleOpen(i) {
@@ -11,7 +11,7 @@ export default function Faq() {
   }
 
   return (
-    <div className="mx-auto w-10/11">
+    <div id={id} className="mx-auto w-10/11 scroll-mb-64">
       {/* Animiamo il titolo principale */}
       <Reveal>
         <h1 className={`${urbanist.className} flex leading-0.5 text-[clamp(50px,12vw,140px)] text-red-700 font-semibold py-15`}>
