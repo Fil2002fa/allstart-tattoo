@@ -10,11 +10,18 @@ body { font-family: var(--font-sans); }
   --font-mono: var(--font-geist-mono);
 }
 
+/* PRIMA */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
     --foreground: #ededed;
   }
+}
+
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
 }
 
 @layer utilities {

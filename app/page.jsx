@@ -17,7 +17,7 @@ export default function Home() {
  
 
   return (
-   <div className="min-h-[300vh]">
+   <div className="min-h-[300vh] bg-black">
 
     <Header/>
  
@@ -71,7 +71,7 @@ export default function Home() {
       </div>
 
 
-  <main className="flex flex-col gap-16 md:gap-72">
+  <main className="flex flex-col gap-16 md:gap-72 bg-black">
     <Paragraph />
     <AppointmentSection />
     <Page />
